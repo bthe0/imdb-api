@@ -47,7 +47,7 @@ class EpisodesService {
                 }
 
                 episodes = await Episode.getTopEpisodes(seriesId);
-                await redis.set(TOP_EPISODES_CACHE_KEY(seriesId), JSON.stringify(episodes));
+                await redis.setAsync(TOP_EPISODES_CACHE_KEY(seriesId), JSON.stringify(episodes));
             }
         } else {
             episodes = JSON.parse(episodes);
